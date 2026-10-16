@@ -1,21 +1,13 @@
 # Pokerlost
 
-Pokerlost keeps its existing SDK, native rules engine, and service scaffold in separate repositories. This private overview maps the code that exists; it does not describe a deployed platform.
+Pokerlost is a collection of separate libraries, templates, and service foundations. This private repository is the navigation point for the platform; it does not describe a deployed game or payment system.
 
-## 🧭 Components
+## 🧭 Architecture
 
-| Repository | Current responsibility | Local check |
-| --- | --- | --- |
-| `pokerlost/pypokerlost` | Typed Python SDK and transport contracts | `make check` |
-| `pokerlost/pokerengine` | C++ rules and state with a Python binding | `make check` |
-| `pokerlost/serviceTemplate` | Pokerlost-specific Copier service scaffold | `make check` |
+The [service map](docs/serviceMap.md) records each component's source, data boundary, current foundation, and deferred business work. The generic Python and FastAPI bases belong to `serrja`; `serviceTemplate` specializes them for Pokerlost. Generated applications run without those template checkouts.
 
-Run each command from that repository's root after installing its documented toolchain. Their own READMEs and `AGENTS.md` files own the exact build and development contracts.
+## 🛠 Development
 
-## 🔒 Boundaries
+Open one repository from the canonical `setupSystem` project catalog, read its `AGENTS.md` and owner document, and run its documented local commands. `pypokerlost` is the HTTP SDK; `pokerengine` is the C++ rules library with Python bindings. The engine's terminal client and TCP server are reference examples, not the production transport or authorization policy.
 
-The SDK does not own game rules. The native engine does not own service deployment. The Pokerlost service template remains specific to the platform; generic project scaffolds belong to `serrja/projectTemplates`. No entry here represents an implemented production service or permission to publish internal endpoints.
-
-## 📚 Working on a component
-
-Choose one repository and read its current `AGENTS.md` before editing. Keep changes and checks within that repository, then review its staged diff and outgoing commits before publication. Shared workstation configuration belongs to `serrja/setupSystem`.
+Versioning and naming rules are owned by the generic Python base. Each component retains its own public contracts and release decision. GitHub publication, CI results, and runtime readiness must be checked in the component repository; a local foundation commit does not establish a production service.
