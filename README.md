@@ -6,6 +6,8 @@ Pokerlost is a collection of separate libraries, templates, and service foundati
 
 The [service map](docs/serviceMap.md) records each component's source, data boundary, current foundation, and deferred business work. The generic Python and FastAPI bases belong to `serrja`; `serviceTemplate` specializes them for Pokerlost. Generated applications run without those template checkouts.
 
+The `virtualMoney` foundation is proposed in a [private PR](https://github.com/pokerlost/virtualMoney/pull/1); its default branch still contains the earlier financial runtime. The PR does not implement an active ledger or payment API.
+
 ## 🛠 Development
 
 Open one repository from the canonical `setupSystem` project catalog, read its `AGENTS.md` and owner document, and run its documented local commands. `pypokerlost` is the HTTP SDK; `pokerengine` is the C++ rules library with Python bindings. The engine's terminal client and TCP server are reference examples, not the production transport or authorization policy.
