@@ -16,7 +16,7 @@ This private map describes component ownership and the implemented development f
 | [virtualMoney](https://github.com/pokerlost/virtualMoney/pull/1) | Future internal ledger, holds and table escrow | Proposed foundation in PR; no active ledger API or invented migration history |
 | [pokerService](https://github.com/pokerlost/pokerService/pull/1) | Future table/session ownership and serialized engine commands | Foundation only; gameplay transport, reconnect and settlement contracts pending |
 | [cryptoService](https://github.com/pokerlost/cryptoService/pull/1) | Future external network/provider observation adaptation | Foundation only; no wallet, custody, provider or payment route |
-| [pokerClient](https://github.com/pokerlost/pokerClient/pull/1) | Dart contract, shared Flutter gameplay package and native/web entry applications | Runnable explicit synthetic preview; production source reports unavailable. Legacy Python CLI remains a separate compatibility tool |
+| [pokerClient](https://github.com/pokerlost/pokerClient/pull/1) | Dart contract, shared Flutter gameplay package and native/web entry applications | Runnable explicit synthetic preview; production source reports unavailable. No Python CLI/package or template recovery dependency |
 | [pokerWeb](https://github.com/pokerlost/pokerWeb/pull/1) | Vue 3/TypeScript pages, navigation, accessibility and Flutter host lifecycle | Loads one pinned client-produced bundle and typed bridge; no second renderer or embedded SDK credentials |
 | [pokerGateway](https://github.com/pokerlost/pokerGateway/pull/1) | Traefik OSS routing, verified TLS/WebSocket behavior and Gateway API chart | No Docker socket/provider, dashboard, application launcher or mutation retries |
 | [platformInfra](https://github.com/pokerlost/platformInfra/pull/1) | Artifact compatibility lock, Compose/Helm composition and data-only values adapter | Explicit preview and full-foundation targets; missing service artifacts stop full startup before side effects |
@@ -26,6 +26,8 @@ This private map describes component ownership and the implemented development f
 Accounts and authorization own their respective future records. virtualMoney owns financial invariants; cryptoService adapts external observations rather than creating a second ledger. No service reads or writes another service's database. Only authService and accountsService currently select the PostgreSQL foundation profile; other services receive no fictitious database wiring.
 
 pokerService will coordinate authoritative engine commands. The native Flutter app and embedded Flutter view present an allowed public/player snapshot and user intent; neither implements shuffle, legal betting, settlement, ledger decisions or another player's private cards. Preview data is synthetic and explicitly selected. No production realtime protocol is inferred from the engine reference NDJSON server, and a Python SDK is not imported into Dart or TypeScript.
+
+Client updates are reviewed Dart/Flutter changes. The Python → FastAPI → service template chain belongs to backend sources and has no arrow into pokerClient. Its artifact export and verification run in Dart.
 
 Vue owns HTML pages and the embed boundary. One engine promise and one active view lease govern loading, cancellation, removal, re-entry and context/events. The site serves the pinned bundle and versioned same-origin assets. Browser authentication, native secure storage and network adapters await actual server contracts; there are no refresh tokens or SDK App keys in client assets.
 
