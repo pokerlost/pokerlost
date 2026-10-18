@@ -1,15 +1,17 @@
 # Pokerlost
 
-Pokerlost is a collection of separate libraries, templates, and service foundations. This private repository is the navigation point for the platform; it does not describe a deployed game or payment system.
+Pokerlost is a set of independent libraries, templates, service foundations and client applications. This private repository provides navigation; implemented work in open PRs does not establish a deployed game, account system or payment product.
 
-## 🧭 Architecture
+## Architecture
 
-The [service map](docs/serviceMap.md) records each component's source, data boundary, current foundation, and deferred business work. The generic Python and FastAPI bases belong to `serrja`; `serviceTemplate` specializes them for Pokerlost. Generated applications run without those template checkouts.
+The [component map](docs/serviceMap.md) records ownership and current boundaries. The main client is Dart/Flutter, the website is Vue/TypeScript, and both render gameplay through one Flutter package owned by pokerClient. Traefik owns the gateway; native Compose and Helm own composition in platformInfra. No application-start API or custom orchestration daemon is introduced.
 
-The `virtualMoney` foundation is proposed in a [private PR](https://github.com/pokerlost/virtualMoney/pull/1); its default branch still contains the earlier financial runtime. The PR does not implement an active ledger or payment API.
+The Python and FastAPI bases belong to `serrja`; serviceTemplate adds Pokerlost protocol and SDK conventions. Generated services run independently of template checkouts. pypokerlost is the Python HTTP SDK, while pokerengine owns authoritative C++ rules and its Python binding. The engine's TCP/curses examples remain reference applications.
 
-## 🛠 Development
+## Development and delivery
 
-Open one repository from the canonical `setupSystem` project catalog, read its `AGENTS.md` and owner document, and run its documented local commands. `pypokerlost` is the HTTP SDK; `pokerengine` is the C++ rules library with Python bindings. The engine's terminal client and TCP server are reference examples, not the production transport or authorization policy.
+Use the sole checkout catalog in setupSystem, open the exact repository root, read its AGENTS and owner document, and run that repository's commands. Template changes flow through reviewed parent snapshots and actual Copier updates. General engineering/versioning rules belong to pythonTemplate; application contracts and migration histories remain with their owners.
 
-Versioning and naming rules are owned by the generic Python base. Each component retains its own public contracts and release decision. GitHub publication, CI results, and runtime readiness must be checked in the component repository; a local foundation commit does not establish a production service.
+Local Compose and disposable Kind acceptance exists for the website, real pinned Flutter bundle, gateway and local PostgreSQL storage. Full service composition remains gated on protected private SDK acquisition and verified service image digests. Product account, token, ledger, payment and multiplayer operations remain pending. Source tests, coverage, installed wheels, image execution, PostgreSQL, browser and Kubernetes checks are distinct results; inspect the exact PR head and CI artifacts for each.
+
+No merge, release or production/remote-cluster deployment is authorized by this map.
