@@ -16,10 +16,12 @@ Use [platformInfra](https://github.com/pokerlost/platformInfra) as the single de
 
 Releases and production/remote-cluster deployment require separate owner decisions.
 
-From this exact Git root, `make check` runs whitespace and Markdown/link checks in Docker.
-`make coverage` reads that fresh result without rerunning checks. Coverage, distributions and
-runtime acceptance are `notApplicable` for this documentation repository. Git, Make and Docker
-suffice; no application SDK is needed.
+From this exact Git root, `make ci-local` checks Markdown/links once, builds a versioned
+source bundle and verifies its bytes. `make version` reads [VERSION](VERSION);
+`make coverage` reports the current documentation result without rerunning checks.
+Git, Make and Docker suffice; product runtime coverage and deployment are not applicable.
+See [development](docs/development.md), [versioning](docs/versioning.md) and
+[release workflow](docs/release-guide.md). Reports stay in ignored `coverage/`.
 
 Web client delivery is supported now; native client targets are deferred with source runners retained.
 Coverage below 100% is advisory across the components; actual test, build, type, report and access errors still fail.
