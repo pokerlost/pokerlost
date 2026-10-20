@@ -12,7 +12,7 @@ help:
 	@printf '%s\n' 'lint typecheck test check'
 lint:
 	git -c safe.directory=/app show --format= --check HEAD
-	python tools/check_documentation.py --documents README.md docs/serviceMap.md
+	python tools/check_documentation.py --documents README.md docs/serviceMap.md docs/licenses.md docs/change-ledger.md
 typecheck:
 	@printf '%s\n' 'notApplicable: no product type system'
 test: lint
