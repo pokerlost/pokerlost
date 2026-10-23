@@ -1,0 +1,28 @@
+name: Cross-service goal
+description: Coordinate a real outcome across existing component issues.
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Measurable outcome
+      description: Explain the user or engineering result and how the owner will accept it.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and constraints
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Component issues and dependencies
+      description: Link real owning issues; do not invent dates or replicate another backlog.
+    validations:
+      required: true
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Related decisions and evidence
+      description: Link ADRs and code; keep implementation, verification and promotion separate.
