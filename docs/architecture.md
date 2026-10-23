@@ -4,7 +4,7 @@ The [component map](serviceMap.md) owns the detailed catalog. This page summariz
 
 ## Runtime ownership
 
-Vue owns site navigation and embeds the Flutter gameplay artifact owned by pokerClient. Traefik selects fixed configured backends using the typed service identifier; that identifier does not grant authorization. Services enforce their own authorization and data boundaries. C++ pokerengine owns authoritative rules; its Python bindings and examples are adapters. pypokerlost owns the Python HTTP contract and does not run inside the Dart client.
+Vue owns site navigation and embeds the Flutter gameplay artifact owned by pokerClient. Traefik selects fixed configured backends using the typed service identifier; that identifier does not grant authorization. Services enforce their own authorization and data boundaries. C++ pokerengine owns authoritative rules and its public Python binding. The separate [pokerDemo](https://github.com/pokerlost/pokerDemo/tree/dev) consumes a pinned installed wheel and owns loopback transport, terminal UI and local recording. It does not copy the engine rules or import a neighboring checkout. pypokerlost owns the Python HTTP contract and does not run inside the Dart client.
 
 Compose and Helm in platformInfra own process composition. Existing data paths, volumes and credentials are preserved; changes to source configuration do not constitute a running deployment. The component map records planned product operations separately from implemented foundations.
 

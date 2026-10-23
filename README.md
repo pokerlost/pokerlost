@@ -10,7 +10,7 @@ Start with the [private handbook](docs/README.md) and [issue → dev → lint wo
 
 The [component map](docs/serviceMap.md) records ownership and current boundaries. The main client is Dart/Flutter, the website is Vue/TypeScript, and both render gameplay through one Flutter package owned by pokerClient. Traefik owns the gateway; native Compose and Helm own composition in platformInfra. No application-start API or custom orchestration daemon is introduced.
 
-The Python foundation, Typer CLI specialization and generic FastAPI base belong to `serrja`; serviceTemplate adds Pokerlost protocol and SDK conventions. Generated services run independently of template checkouts. pypokerlost is the Python HTTP SDK, while pokerengine owns authoritative C++ rules and its Python binding. The engine's installed-wheel TCP/console demo completes a real synthetic hand; [public recordings](https://github.com/serrja/serrja/blob/dev/docs/engine_demo.md) expose safe outputs while source remains private.
+The Python foundation, Typer CLI specialization and generic FastAPI base belong to `serrja`; serviceTemplate adds Pokerlost protocol and SDK conventions. Generated services run independently of template checkouts. pypokerlost is the Python HTTP SDK, while pokerengine owns authoritative C++ rules and its Python binding. The separate [pokerDemo](https://github.com/pokerlost/pokerDemo/tree/dev) consumes a pinned installed wheel and owns the loopback server, two console clients and recording commands. Its new captures stay local in `.local/recordings/<run-id>/`; repository access does not publish recordings.
 
 ## Development and delivery
 
