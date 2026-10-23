@@ -5,6 +5,7 @@ This private handbook owns team-wide decisions, navigation and development workf
 ## Navigation
 
 - [Development and task workflow](development.md)
+- [Current sprint and team cycle](sprints.md)
 - [Architecture and boundaries](architecture.md)
 - [Component ownership](serviceMap.md)
 - [Dev-first decision](decisions/0001-dev-first.md)
@@ -13,9 +14,9 @@ This private handbook owns team-wide decisions, navigation and development workf
 
 ## Shared planning
 
-The canonical board is the private organization Project [Pokerlost — разработка](https://github.com/orgs/pokerlost/projects/1), verified in Chrome. Its views are План (table), В работе (board), and Цели (table grouped by parent issue). The current [dev-first goal](https://github.com/pokerlost/pokerlost/issues/4) links the implementation work. Repository issues own tasks and bugs; an issue in this overview owns a cross-service goal and links its component tasks.
+The existing private [Pokerlost board](https://github.com/orgs/pokerlost/projects/1) connects repository tasks to the [shared goal #4](https://github.com/pokerlost/pokerlost/issues/4). Start with the [current sprint](https://github.com/orgs/pokerlost/projects/1/views/2); [sprints](sprints.md) documents its scope, iteration dates, views and review cycle.
 
-Project access and repository access are separate. A member who can read the board still needs existing repository access to read a private issue. The new Project uses Read as its organization base role; the existing owner retains Admin. No collaborator invitations or repository ACL changes were made. The default PR-merged → Done automation is disabled: a dev merge is not owner acceptance. Preserve visibility, membership and App permissions. Propose any required repository ACL change separately for owner approval.
+Project and repository access are separate. The PR-merged → Done automation is disabled. Preserve existing visibility, membership and App permissions. A dev push or merge does not accept a task or promote it to main/test; result and verification are recorded separately.
 
 ## History and offline use
 

@@ -11,7 +11,7 @@ Shared tasks live in GitHub Issues and one private organization Project. This re
 
 Choose a goal, find an existing issue before creating a duplicate, and agree the scope and acceptance criteria. Create a component issue for implementation or a goal issue here with measurable results and links to child issues. Native parent/sub-issue relationships are optional; ordinary links remain sufficient. Do not invent dates, estimates, issue numbers or historical events.
 
-The [shared board](https://github.com/orgs/pokerlost/projects/1) has three views of the same Project: **План** as a table, **В работе** as a board, and **Цели** as a table grouped by parent issue; real dates are required before a roadmap. Use Status, Priority, Assignee and a goal/parent link; repository comes from the issue itself.
+Use the [sprint guide](sprints.md) for iteration dates, current scope, board views and the team cycle. Keep task status in the existing Project and detailed criteria/evidence in the owning issue.
 
 ## Branches and checkout
 
@@ -38,7 +38,7 @@ A dev push may trigger only a credential-free lint workflow. Review all old trig
 
 ## Review and outcome
 
-Use Backlog → Ready → In Progress → Review → Done; Blocked has a concrete reason. An ordinary implementation remains on Review after dev push until the owner accepts its criteria. Record source implementation, verification and promotion separately:
+Follow the [sprint review cycle](sprints.md#working-cycle). An ordinary implementation remains in Review after dev push until the agreed criteria are accepted. Record source implementation, verification and promotion separately:
 
 ```text
 implementation: implemented_in_dev
