@@ -22,5 +22,6 @@ lint:
 typecheck:
 	@printf '%s\n' 'notApplicable: no product type system'
 test: lint
+	python tools/test_bundle_version.py
 check: test
 endif

@@ -19,8 +19,9 @@ no version commit is pushed back to a permanent branch. The publisher injects th
 resolved native version into an isolated archive. Retry the original run to recover
 partial publication; never substitute the current branch head.
 
-Until a reviewed reusable workflow pin and enforceable protections are available,
-publishing/promotion remains **BLOCKED**. In this private repository the protection
+The workflow calls the reviewed shared provider at `637ff1b505b0b9fb54847d46927a9596b1ebc967`
+using the native VERSION adapter. Publishing/promotion remains **BLOCKED** until
+enforceable protections are available. In this private repository the protection
 API returned HTTP 403 with a GitHub plan restriction during baseline; do not change
 visibility or use an unprotected merge to work around it. Local checks and reviewed
 working-branch PRs remain useful. GitHub Releases do not authorize production deploy

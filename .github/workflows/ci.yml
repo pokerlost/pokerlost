@@ -27,3 +27,19 @@ jobs:
           cache-to: type=gha,mode=max,scope=${{ github.repository_id }}-docs-linux-amd64-${{ github.event_name == 'pull_request' && 'review' || 'trusted' }}
       - run: make ci-local
       - run: cat coverage/summary.md >> "$GITHUB_STEP_SUMMARY"
+  promotion:
+    if: github.event_name == 'pull_request'
+    uses: pokerlost/.github/.github/workflows/promotion.yml@637ff1b505b0b9fb54847d46927a9596b1ebc967
+  release:
+    if: github.event_name == 'push' && (github.ref_name == 'dev' || github.ref_name == 'main')
+    needs: validate
+    permissions:
+      contents: write
+      actions: read
+    uses: pokerlost/.github/.github/workflows/release.yml@637ff1b505b0b9fb54847d46927a9596b1ebc967
+    with:
+      provider-ref: 637ff1b505b0b9fb54847d46927a9596b1ebc967
+      native-adapter: version-file
+      bundle-name: pokerlost-overview
+      source-workflow: .github/workflows/ci.yml
+      gate-name: validate
