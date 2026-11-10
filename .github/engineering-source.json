@@ -57,5 +57,15 @@
   },
   "codeowners": "Project-specific assignment; not inherited from the template.",
   "role": "Reviewed portable engineering snapshots; no active scaffold restoration or template-update dependency.",
-  "latestUpdateRevision": "b95e247bc59123decdb02e4db6d98fa761b69786"
+  "latestUpdateRevision": "b95e247bc59123decdb02e4db6d98fa761b69786",
+  "localAdaptations": {
+    "Makefile": "Explicit current documentation inventory; no product runtime checks.",
+    ".github/workflows/contribution.yml": "Approved lowerCamelCase working branches and working/test/dev/main promotion guard, no legacy branch bypass.",
+    ".github/PULL_REQUEST_TEMPLATE.md": "Concise review fields retaining exact checks/compatibility/recovery.",
+    "docker/quality.mk": {
+      "reason": "Linked worktree metadata must preserve common Git directory layout; one read-only .git mount and explicit nested GIT_DIR avoid invalid HEAD and leaking .git-common into bundles.",
+      "sha256": "b7f847b69a077a35c86d1f929444ac2f5c450f4453869efb4b82fafc0283eaf2",
+      "review": "G02 reproducible Docker Git 2.39 vs host 2.53; read-only linked-worktree smoke"
+    }
+  }
 }

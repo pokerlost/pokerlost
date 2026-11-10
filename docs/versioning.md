@@ -1,18 +1,16 @@
-# Versioning
+# 📦 Versioning
 
-[VERSION](../VERSION) is the only version source for the `pokerlost-overview` bundle.
-It is independent of application versions and other documentation repositories.
-Markdown, assets, community files and configuration schemas belong to the bundle
-and its Git snapshot; individual pages and images have no separate runtime version.
+[VERSION](../VERSION) is the native version intent for `pokerlost-overview`, independent
+of component packages, schemas and databases. A compatible docs change advances
+patch by default after the latest accepted stable release. Feature/breaking intent
+must be explicit and reviewed.
 
-Use patch increments for compatible corrections, minor increments for compatible
-new guidance, and major increments for incompatible public contract changes after
-1.0. During 0.x, an incompatible contract change requires a minor increment and a
-migration note. Prerelease candidates use PEP 440 `rcN` or `.devN`; the native
-shared checker validates the version. Keep any explicit schema version tied to
-its actual serialization contract, not routine text edits.
+## 🏷️ Mapping
 
-`make version` reads VERSION. `make release-check` checks the built archive's
-source identity, inventory and version without publishing. A release tag is one
-new annotated `v<version>` at a clean, reviewed and checked main commit. Never
-move a published tag. See [release workflow](release-guide.md).
+GitHub dev tags use `vX.Y.Z-dev.N`; stable tags use `vX.Y.Z`. Release bundles receive
+the exact allocated version in an isolated build tree, with source SHA, checksums
+and manifest. Source-tree VERSION is not a claim that a release exists. Historical
+tags remain immutable. The current local Python archive checker accepts its native
+PEP 440 representation; the shared documentation adapter uses explicit SemVer.
+Do not confuse those artifacts or publish mismatched metadata. See the
+[release gate](release_guide.md) before enabling publication.
