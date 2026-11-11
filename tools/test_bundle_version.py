@@ -10,6 +10,31 @@ import unittest
 
 
 class BundleVersionTest(unittest.TestCase):
+    def test_bundle_verifies_with_sibling_document_and_directory(self):
+        tool = Path(__file__).resolve().parents[1] / "docker" / "release.py"
+        with tempfile.TemporaryDirectory(prefix="overview-inventory-") as directory:
+            root = Path(directory)
+            files = {
+                "VERSION": "1.2.3-dev.0\n",
+                "README.md": "# Fixture\n",
+                "docs/decisions.md": "# Decisions\n",
+                "docs/decisions/0001.md": "# Historical decision\n",
+            }
+            for name, content in files.items():
+                target = root / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(content)
+            (root / "coverage").mkdir()
+            (root / "coverage/source-files.nul").write_bytes(
+                b"\0".join(name.encode() for name in files) + b"\0"
+            )
+            for command in ["bundle-build", "bundle-verify"]:
+                result = subprocess.run(
+                    [sys.executable, str(tool), command, "--name", "fixture-docs"],
+                    cwd=root, text=True, capture_output=True,
+                )
+                self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_native_version_accepts_exact_semver_and_rejects_ambiguous_channels(self):
         tool = Path(__file__).resolve().parents[1] / "docker" / "release.py"
         with tempfile.TemporaryDirectory(prefix="community-version-") as directory:

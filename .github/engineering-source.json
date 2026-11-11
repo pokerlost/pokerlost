@@ -42,10 +42,10 @@
     },
     "docker/release.py": {
       "source": "template/docker/release.py",
-      "sha256": "1c214e9ce72f654799a605033bfd7109952d61f2e1911fb3f1972e7daeb36461",
+      "sha256": "a29123fbdda921d260ed3c7ff94bb433339a4517d1023dfac45e81816bf3c7ee",
       "revision": "b95e247bc59123decdb02e4db6d98fa761b69786",
       "upstreamSha256": "345b82b5036b8ac162778ba69af20cf1d45e2ccc28038a168f2b6882de9587a3",
-      "localAdaptation": "Documentation VERSION preserves exact SemVer; Python packages still use PEP 440 normalization."
+      "localAdaptation": "Documentation VERSION preserves exact SemVer; Python packages still use PEP 440 normalization. Canonical POSIX inventory order supports sibling document/directory paths during build verification."
     },
     "docker/documentation-requirements.in": {
       "source": "docker/documentation-requirements.in",
