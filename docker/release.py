@@ -379,7 +379,7 @@ def bundle_files() -> list[Path]:
             raise ValueError("Source bundles reject symlinks")
         if path.is_file() and path.suffix != ".pyc":
             files.append(path)
-    return sorted(files)
+    return sorted(files, key=lambda path: path.as_posix())
 
 
 @app.command("bundle-build")

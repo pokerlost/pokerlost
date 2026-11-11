@@ -21,3 +21,15 @@ body:
       description: Include compatibility and data ownership where relevant.
     validations:
       required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable result, validation scope and exclusions.
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Goal, dependencies and decisions
+      description: Link existing issues, ADRs and owning code; do not duplicate private content.

@@ -14,7 +14,9 @@
     },
     ".github/ISSUE_TEMPLATE/feature.yml": {
       "source": "template/.github/ISSUE_TEMPLATE/feature.yml",
-      "sha256": "0b80a1e2b30ffc501f321a38b0c60396f309eb73e8aeff0c3a45710009dd23bd"
+      "sha256": "121e37f40306677075a8b549007db2882419e48025db4ba108dc23ea139a5fa4",
+      "upstreamSha256": "0b80a1e2b30ffc501f321a38b0c60396f309eb73e8aeff0c3a45710009dd23bd",
+      "localAdaptation": "Preserve existing task acceptance and dependency fields from the shared handbook."
     },
     ".github/workflows/contribution.yml": {
       "source": "template/.github/workflows/contribution.yml",
@@ -40,10 +42,10 @@
     },
     "docker/release.py": {
       "source": "template/docker/release.py",
-      "sha256": "1c214e9ce72f654799a605033bfd7109952d61f2e1911fb3f1972e7daeb36461",
+      "sha256": "a29123fbdda921d260ed3c7ff94bb433339a4517d1023dfac45e81816bf3c7ee",
       "revision": "b95e247bc59123decdb02e4db6d98fa761b69786",
       "upstreamSha256": "345b82b5036b8ac162778ba69af20cf1d45e2ccc28038a168f2b6882de9587a3",
-      "localAdaptation": "Documentation VERSION preserves exact SemVer; Python packages still use PEP 440 normalization."
+      "localAdaptation": "Documentation VERSION preserves exact SemVer; Python packages still use PEP 440 normalization. Canonical POSIX inventory order supports sibling document/directory paths during build verification."
     },
     "docker/documentation-requirements.in": {
       "source": "docker/documentation-requirements.in",
@@ -75,6 +77,7 @@
       "sha256": "b7f847b69a077a35c86d1f929444ac2f5c450f4453869efb4b82fafc0283eaf2",
       "review": "G02 reproducible Docker Git 2.39 vs host 2.53; read-only linked-worktree smoke"
     },
-    "rules": "Approved generic H01 normative links, independent of preserved pythonTemplate tool-snapshot provenance."
+    "rules": "Approved generic H01 normative links, independent of preserved pythonTemplate tool-snapshot provenance.",
+    ".github/ISSUE_TEMPLATE/goal.yml": "Project-owned cross-service goal form retained from the existing handbook."
   }
 }
