@@ -14,7 +14,9 @@
     },
     ".github/ISSUE_TEMPLATE/feature.yml": {
       "source": "template/.github/ISSUE_TEMPLATE/feature.yml",
-      "sha256": "0b80a1e2b30ffc501f321a38b0c60396f309eb73e8aeff0c3a45710009dd23bd"
+      "sha256": "121e37f40306677075a8b549007db2882419e48025db4ba108dc23ea139a5fa4",
+      "upstreamSha256": "0b80a1e2b30ffc501f321a38b0c60396f309eb73e8aeff0c3a45710009dd23bd",
+      "localAdaptation": "Preserve existing task acceptance and dependency fields from the shared handbook."
     },
     ".github/workflows/contribution.yml": {
       "source": "template/.github/workflows/contribution.yml",
@@ -75,6 +77,7 @@
       "sha256": "b7f847b69a077a35c86d1f929444ac2f5c450f4453869efb4b82fafc0283eaf2",
       "review": "G02 reproducible Docker Git 2.39 vs host 2.53; read-only linked-worktree smoke"
     },
-    "rules": "Approved generic H01 normative links, independent of preserved pythonTemplate tool-snapshot provenance."
+    "rules": "Approved generic H01 normative links, independent of preserved pythonTemplate tool-snapshot provenance.",
+    ".github/ISSUE_TEMPLATE/goal.yml": "Project-owned cross-service goal form retained from the existing handbook."
   }
 }

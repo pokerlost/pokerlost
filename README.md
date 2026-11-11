@@ -5,6 +5,10 @@ and client applications. This private repository maps their boundaries and links
 requirements to source evidence. Product account, ledger and multiplayer operations
 remain planned.
 
+The [private handbook](docs/README.md) links the existing team board, task workflow,
+planning history and component evidence. Source delivery follows reviewed
+working → test → dev → main PRs; a branch push alone does not accept a task.
+
 ## 🧩 Architecture
 
 Start with the [component map](docs/service_map.md), the
@@ -40,7 +44,10 @@ These commands do not run the component integration suites. See
 [platformInfra](https://github.com/pokerlost/platformInfra) owns Compose/Helm and
 operational acceptance. [projectRules](https://github.com/pokerlost/projectRules)
 is the active Pokerlost policy source; `.github` owns reusable delivery mechanics.
-The [public engine recording](https://github.com/serrja/serrja/blob/main/docs/engine_demo.md)
+The separate [pokerDemo](https://github.com/pokerlost/pokerDemo/tree/dev) owns loopback
+transport, terminal play and local recording with a pinned installed engine wheel.
+New captures stay ignored in its `.local/recordings/`; repository access does not
+publish them. The [historical public engine recording](https://github.com/serrja/serrja/blob/main/docs/engine_demo.md)
 shows synthetic output. A recording or an old acceptance note does not establish
 current full-system acceptance; inspect each exact source revision and CI result.
 
