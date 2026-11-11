@@ -8,6 +8,7 @@ import importlib.metadata
 import io
 import json
 import platform
+import re
 import tarfile
 import tomllib
 import zipfile
@@ -295,7 +296,9 @@ def project_metadata(bundle_name: str | None = None) -> tuple[str, str, str]:
     """PEP 621 metadata owns Python/template versions; VERSION owns doc bundles."""
     metadata = Path("pyproject.toml")
     if not metadata.is_file():
-        version = str(Version(Path("VERSION").read_text().strip()))
+        version = Path("VERSION").read_text().strip()
+        if re.fullmatch(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-dev\.(0|[1-9]\d*))?", version) is None:
+            raise ValueError("Documentation VERSION must use X.Y.Z or X.Y.Z-dev.N")
         return (
             canonicalize_name(bundle_name or Path.cwd().name, validate=True),
             version,
@@ -376,7 +379,7 @@ def bundle_files() -> list[Path]:
             raise ValueError("Source bundles reject symlinks")
         if path.is_file() and path.suffix != ".pyc":
             files.append(path)
-    return sorted(files)
+    return sorted(files, key=lambda path: path.as_posix())
 
 
 @app.command("bundle-build")

@@ -1,6 +1,6 @@
 # ADR 0001: Dev-first delivery and shared planning
 
-Status: accepted policy, implemented in dev with lint evidence. Date: 2026-10-23. Long-lived refs and the private [shared board](https://github.com/orgs/pokerlost/projects/1) exist. Full acceptance and default-branch manual workflow activation remain separate.
+Status: delivery clauses superseded by [current G02 policy](../release_guide.md). Original decision date: 2026-10-23. The following context and decision record the earlier dev-first policy; they are historical, not current delivery instructions. Shared planning, source ownership and private data boundaries remain applicable.
 
 ## Context
 

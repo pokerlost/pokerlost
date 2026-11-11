@@ -1,12 +1,12 @@
 # Pokerlost overview
 
-Read selected [baseRules](https://raw.githubusercontent.com/serrja/baseRules/bafcb63ed94b9769a0ca098e5db4b33c55dbc1b9/docs/engineering.md), then [Pokerlost norms](https://raw.githubusercontent.com/pokerlost/projectRules/904c65a3daab88802fb5e414cdaccc7ad2b555a8/docs/project.md) before the local contract below.
+Read selected [baseRules](https://raw.githubusercontent.com/serrja/baseRules/8434509933feaa71ba312f8d02caad7362766d5a/docs/engineering.md), then [Pokerlost norms](https://raw.githubusercontent.com/pokerlost/projectRules/537da92f8e22f35355a96f868d1b98d83e066c75/docs/project.md) before the local contract below.
 These full-SHA links are reading sources, not automatic loaders or grants. Review
 the source diff, update the explicit pin and run docs checks for a rules refresh.
 Local overrides apply only to this repository's stated ownership boundary.
 
 Keep this private map factual and short. Do not copy credentials, private endpoints, unpublished service details, or personal data into it. Source code and authoritative commands remain in each component repository. Follow the task's explicit publication permission and review staged content before push.
 
-Daily work uses `dev` and lint only. `main` and `test` stay unchanged until an
-explicit promotion. Full acceptance, template render/update checks, builds and
-releases are manual; a dev snapshot is not a verified release.
+Use a lowerCamelCase working branch from current test, then separately reviewed
+working → test → dev → main PRs. Run make check and make ci-local. Preserve
+component contracts; label proposed capabilities and unverified checks honestly.

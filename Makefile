@@ -1,7 +1,3 @@
-# Quick dev commands never prepare a product/build image.
-ifneq ($(filter lint format format-check check,$(MAKECMDGOALS)),)
-override CONTAINERIZED := 1
-endif
 ifneq ($(CONTAINERIZED),1)
 QUALITY_IMAGE := overview:quality
 BUNDLE_NAME := pokerlost-overview
@@ -15,8 +11,6 @@ BUILD_RECEIPT_COMMAND = $(QUALITY_RUN) python docker/release.py capture-build --
 VERIFY_COMMAND = $(QUALITY_RUN) python docker/release.py bundle-verify --name $(BUNDLE_NAME)
 IMAGE_COMMAND = printf "%s\n" "notApplicable: no runtime image"
 OFFLINE_PREFLIGHT_COMMAND = true
-QUALITY_EXTRA_TARGETS += acceptance
-CI_LOCAL_TARGETS ?= acceptance coverage build verify release-check
 include docker/quality.mk
 else
 .PHONY: help lint typecheck test check
@@ -24,18 +18,10 @@ help:
 	@printf '%s\n' 'Native documentation checks: lint test check; Docker owns bundle verification.'
 lint:
 	git -c safe.directory=/app diff --check HEAD -- .
-	python tools/check_documentation.py --documents README.md docs/README.md docs/architecture.md docs/sprints.md docs/decisions/0001-dev-first.md docs/serviceMap.md docs/licenses.md docs/change-ledger.md docs/development.md docs/versioning.md docs/release-guide.md CHANGELOG.md
+	python tools/check_documentation.py --documents README.md CONTRIBUTING.md AGENTS.md docs/README.md docs/architecture.md docs/sprints.md docs/decisions/0001-dev-first.md docs/service_map.md docs/serviceMap.md docs/poker_service.md docs/decisions.md docs/change-ledger.md docs/analysis/table_entry.md docs/licenses.md docs/development.md docs/versioning.md docs/release_guide.md docs/release-guide.md CHANGELOG.md
 typecheck:
 	@printf '%s\n' 'notApplicable: no product type system'
 test: lint
-check: lint ## Fast lint-only gate; no tests/build.
-
-acceptance: test
+	python tools/test_bundle_version.py
+check: test
 endif
-
-.PHONY: dev-policy-help
-help: dev-policy-help
-dev-policy-help:
-	@printf '%s\n' 'Daily: make lint; explicit git push origin dev.' \
-	  'Manual only: test, typecheck, coverage, build, acceptance, ci-local.' \
-	  'Native lint tools must be installed; lint never syncs/builds the application.'

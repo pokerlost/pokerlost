@@ -34,8 +34,8 @@ The issue bodies own detailed criteria and current evidence. Do not expand the s
 
 1. Select the goal and real component issues. Agree each task's outcome, scope and acceptance criteria before assigning Sprint.
 2. Move prepared work from Backlog to Ready, then In progress when someone starts it. Use the existing Blocked status with a concrete reason, needed action and owner when progress stops.
-3. Work in dev and run the relevant lint. Review the diff, staged paths and secrets, then push explicitly to dev. Full tests, builds and CI are separate requested checks.
-4. Move the task to Review with the full dev SHA, result, actual checks and remaining limitations. Record verification separately, for example `lint-only`, `manual-demo-verified` and `tests-not-run`.
+3. Work on a lowerCamelCase branch from current test. Run the owning native quick/full gates, review the diff, staged paths and secrets, then use separate working → test → dev → main PRs. The [release guide](release_guide.md) owns delivery mechanics.
+4. Move the task to Review with the full source SHA, result, actual checks and remaining limitations. Distinguish native gate, installed-artifact checks, runtime acceptance and checks not run; historical lint-only evidence is not full acceptance.
 5. Move to Done when the agreed scope is accepted. At the sprint boundary, record what finished, what did not and why, and one process change for the next sprint. Carry unfinished work to a suitable iteration with the reason preserved in the issue.
 
 Done does not imply test/main promotion, stable release or deployment. A dev push never closes all linked issues automatically. See [development](development.md) for checkout and delivery commands and the [handbook](README.md) for architecture and history.

@@ -16,7 +16,7 @@ The Python foundation flows from pythonTemplate to typerTemplate, and through fa
 
 `main`, `dev`, `test` and `local` describe explicit process configuration. Git branches describe source history; there is no runtime lookup of `.git` and no `local` branch. Remote endpoints must be supplied by trusted application configuration, and an absent endpoint must fail before network I/O. Service identity, auth audience, credentials and release version are separate concepts.
 
-Source implementations now exist in dev:
+The earlier handbook inspected these source snapshots, with lint-only evidence:
 
 | Owner | Exact implementation | Boundary |
 | --- | --- | --- |
@@ -34,4 +34,4 @@ render/update suites and runtime integration were not run in this pass.
 
 ## Decisions and operations
 
-The [dev-first decision](decisions/0001-dev-first.md) records the current delivery policy. Existing [platform operations](https://github.com/pokerlost/platformInfra/tree/main/docs) and component READMEs remain authoritative for commands and recovery. A new decision may explicitly supersede an earlier ADR; historical context is not rewritten as if it had always been current.
+The [historical dev-first decision](decisions/0001-dev-first.md) preserves earlier rationale; the [release guide](release_guide.md) owns current delivery policy. Existing [platform operations](https://github.com/pokerlost/platformInfra/tree/main/docs) and component READMEs remain authoritative for commands and recovery. A new decision may explicitly supersede an earlier ADR; historical context is not rewritten as if it had always been current.

@@ -1,39 +1,57 @@
-# Pokerlost
+# ♠️ Pokerlost
 
-Pokerlost is a set of independent libraries, templates, service foundations and client applications. This private repository provides navigation; development acceptance does not establish a deployed game, account system or payment product.
+Pokerlost is a set of independently owned libraries, templates, service foundations
+and client applications. This private repository maps their boundaries and links
+requirements to source evidence. Product account, ledger and multiplayer operations
+remain planned.
 
-## Team workspace
+The [private handbook](docs/README.md) links the existing team board, task workflow,
+planning history and component evidence. Source delivery follows reviewed
+working → test → dev → main PRs; a branch push alone does not accept a task.
 
-Start with the [private handbook](docs/README.md) and [issue → dev → lint workflow](docs/development.md). The private [shared board](https://github.com/orgs/pokerlost/projects/1) connects component tasks and cross-service goals; repository access remains separate. New development stays on dev, and main/test promotion is separate.
+## 🧩 Architecture
 
-## Architecture
+Start with the [component map](docs/service_map.md), the
+[foundation request and table-entry case](docs/analysis/table_entry.md), and the
+[architecture decisions](docs/decisions.md). Authoritative OpenAPI, database schemas,
+engine rules and deployment commands stay in their component repositories.
 
-The [component map](docs/serviceMap.md) records ownership and current boundaries. The main client is Dart/Flutter, the website is Vue/TypeScript, and both render gameplay through one Flutter package owned by pokerClient. Traefik owns the gateway; native Compose and Helm own composition in platformInfra. No application-start API or custom orchestration daemon is introduced.
+`pokerService` exists remotely as a private FastAPI foundation; it is absent from
+the supplied source package; its canonical local checkout is missing.
+The setupSystem catalog already includes it.
+Its source implements infrastructure routes, not table orchestration. See
+[discovery and the integration prerequisite](docs/poker_service.md).
 
-The Python foundation, Typer CLI specialization and generic FastAPI base belong to `serrja`; serviceTemplate adds Pokerlost protocol and SDK conventions. Generated services run independently of template checkouts. pypokerlost is the Python HTTP SDK, while pokerengine owns authoritative C++ rules and its Python binding. The separate [pokerDemo](https://github.com/pokerlost/pokerDemo/tree/dev) consumes a pinned installed wheel and owns the loopback server, two console clients and recording commands. Its new captures stay local in `.local/recordings/<run-id>/`; repository access does not publish recordings.
+## 🚀 Work on this map
 
-## Development and delivery
+Read [CONTRIBUTING](CONTRIBUTING.md) and the pinned sources in [AGENTS](AGENTS.md).
+From this exact Git root, use Git, Make and Docker with Buildx:
 
-Use the sole checkout catalog in setupSystem, open the exact repository root, read its AGENTS and owner document, and run that repository's commands. Template changes flow through reviewed parent snapshots and actual Copier updates. Python backend engineering/versioning rules belong to pythonTemplate; application contracts and migration histories remain with their owners. pokerClient owns its Dart/Flutter commands and version policy, with no Python package or template update dependency.
+```bash
+make help
+make check
+make ci-local
+```
 
-Use [platformInfra](https://github.com/pokerlost/platformInfra) as the single deployment entrypoint. Its full local build path includes the real Vue/Flutter bundle, Nginx, header-routing gateway, five foundations, two PostgreSQL databases and Prometheus/Grafana/Loki/Alloy. Historical HTTP, browser and telemetry acceptance belongs to its previously pinned artifacts; it was not rerun for this dev snapshot. Registry mode remains gated on missing image digests/read access; local acceptance does not imply production readiness. Product account, token, ledger, payment and multiplayer operations remain pending. Source tests, coverage, installed wheels, image execution, PostgreSQL, browser and Kubernetes checks are distinct results; inspect the exact PR head and CI artifacts for each.
+`check` checks documentation; `ci-local` additionally builds and verifies the
+versioned source bundle. Reports remain in ignored `coverage/` and `dist/`.
+These commands do not run the component integration suites. See
+[development](docs/development.md), [versioning](docs/versioning.md) and
+[release flow](docs/release_guide.md).
 
-Releases and production/remote-cluster deployment require separate owner decisions.
+## 🔗 Owners and evidence
 
-Only when explicitly requested, `make ci-local` checks Markdown/links once, builds a versioned
-source bundle and verifies its bytes. `make version` reads [VERSION](VERSION);
-`make coverage` reports the current documentation result without rerunning checks.
-Git, Make and Docker suffice; product runtime coverage and deployment are not applicable.
-See [development](docs/development.md), [versioning](docs/versioning.md) and
-[release workflow](docs/release-guide.md). Reports stay in ignored `coverage/`.
-
-Web client delivery is supported now; native client targets are deferred with source runners retained.
-Coverage below 100% is advisory across the components; actual test, build, type, report and access errors still fail.
-
-[License inventory](docs/licenses.md) · [Migration/removal evidence](docs/change-ledger.md)
+[platformInfra](https://github.com/pokerlost/platformInfra) owns Compose/Helm and
+operational acceptance. [projectRules](https://github.com/pokerlost/projectRules)
+is the active Pokerlost policy source; `.github` owns reusable delivery mechanics.
+The separate [pokerDemo](https://github.com/pokerlost/pokerDemo/tree/dev) owns loopback
+transport, terminal play and local recording with a pinned installed engine wheel.
+New captures stay ignored in its `.local/recordings/`; repository access does not
+publish them. The [historical public engine recording](https://github.com/serrja/serrja/blob/main/docs/engine_demo.md)
+shows synthetic output. A recording or an old acceptance note does not establish
+current full-system acceptance; inspect each exact source revision and CI result.
 
 ## 📄 License
 
-Original source/documentation uses [MIT](LICENSE). Preserve the
-[third-party notices](THIRD_PARTY_NOTICES.md); upstream assets, distributions and
-private data retain their own terms and access boundaries.
+Original documentation uses [MIT](LICENSE). Preserve [third-party notices](THIRD_PARTY_NOTICES.md)
+and the [license inventory](docs/licenses.md); private sources retain their access boundaries.
